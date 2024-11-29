@@ -48,7 +48,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
-            <version>5.9.0</version>
         </dependency>
 
         <dependency>
@@ -71,6 +70,8 @@
     </dependencies>
 
     <profiles>
+        <!-- To run jazzer directly (i.e. not through jazzer-junit), use this profile and supply the
+        jazzer_standalone.jar from the jazzer distribution. -->
         <profile>
             <id>direct-fuzzing</id>
 
@@ -79,7 +80,7 @@
                     <groupId>jazzer-runtime</groupId>
                     <artifactId>jazzer-runtime</artifactId>
                     <version>0.22.1</version>
-                    <systemPath>${user.home}/bin/jazzer/0.22.1/jazzer_standalone.jar</systemPath>
+                    <systemPath>${JAZZER_STANDALONE}</systemPath>
                     <scope>system</scope>
                 </dependency>
             </dependencies>
