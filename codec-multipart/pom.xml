@@ -46,8 +46,9 @@
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
+            <version>5.9.0</version>
         </dependency>
 
         <dependency>
@@ -61,5 +62,27 @@
             <version>${netty.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.code-intelligence</groupId>
+            <artifactId>jazzer-junit</artifactId>
+            <version>0.22.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>direct-fuzzing</id>
+
+            <dependencies>
+                <dependency>
+                    <groupId>jazzer-runtime</groupId>
+                    <artifactId>jazzer-runtime</artifactId>
+                    <version>0.22.1</version>
+                    <systemPath>${user.home}/bin/jazzer/0.22.1/jazzer_standalone.jar</systemPath>
+                    <scope>system</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
 </project>

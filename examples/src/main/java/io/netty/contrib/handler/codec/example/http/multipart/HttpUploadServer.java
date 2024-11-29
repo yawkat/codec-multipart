@@ -19,7 +19,7 @@ import io.netty5.bootstrap.ServerBootstrap;
 import io.netty5.channel.Channel;
 import io.netty5.channel.EventLoopGroup;
 import io.netty5.channel.MultithreadEventLoopGroup;
-import io.netty5.channel.nio.NioHandler;
+import io.netty5.channel.nio.NioIoHandler;
 import io.netty5.channel.socket.nio.NioServerSocketChannel;
 import io.netty5.handler.logging.LogLevel;
 import io.netty5.handler.logging.LoggingHandler;
@@ -45,8 +45,8 @@ public final class HttpUploadServer {
             sslCtx = null;
         }
 
-        EventLoopGroup bossGroup = new MultithreadEventLoopGroup(NioHandler.newFactory());
-        EventLoopGroup workerGroup = new MultithreadEventLoopGroup(NioHandler.newFactory());
+        EventLoopGroup bossGroup = new MultithreadEventLoopGroup(NioIoHandler.newFactory());
+        EventLoopGroup workerGroup = new MultithreadEventLoopGroup(NioIoHandler.newFactory());
 
         try {
             ServerBootstrap b = new ServerBootstrap();
